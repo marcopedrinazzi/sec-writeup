@@ -9,13 +9,12 @@ Struttura in dettaglio dei campi della MFT nel writeup di HTB.
 
 In the process of identifying the initial ZIP file, we aim to uncover the URL from which it was downloaded. When files are downloaded from the internet using a browser, Alternate Data Streams (ADS) are generated for the downloaded file, containing the URL of the download source. ADS can be used to store additional information associated with a file or directory.
 
+```Created0x10: STANDARD_INFO created timestamp Created0x30: FILE_NAME created timestamp```
+
 ## Writeup
 ```In this very easy Sherlock, you will familiarize yourself with Unix auth.log and wtmp logs. We'll explore a scenario where a Confluence server was brute-forced via its SSH service. After gaining access to the server, the attacker performed additional activities, which we can track using auth.log. Although auth.log is primarily used for brute-force analysis, we will delve into the full potential of this artifact in our investigation, including aspects of privilege escalation, persistence, and even some visibility into command execution.```
 
 `MFTECMD.exe -f "C:\Users\marco\Desktop\$MFT" --csv "C:\users\marco\Desktop"`
-
-```Created0x10: STANDARD_INFO created timestamp 
-Created0x30: FILE_NAME created timestamp```
 
 - **Simon Stark was targeted by attackers on February 13. He downloaded a ZIP file from a link received in an email. What was the name of the ZIP file he downloaded from the link?** => Click under the column there is a filter option (white row) => Set Created0x10 at 13/02/2024, Set Extension to .zip => 3 files, kape.zip is the artifact collector, stage-xx.zip and invoices.zip, invoices is inside the stage directory so stage-xx.zip is the answer.
 - **Examine the Zone Identifier contents for the initially downloaded ZIP file. This field reveals the HostUrl from where the file was downloaded, serving as a valuable Indicator of Compromise (IOC) in our investigation/analysis. What is the full Host URL from where this ZIP file was downloaded?** => Filter with Stage-20240213T093324Z-001.zip in the File Name column, inside ZoneId there is the url.
