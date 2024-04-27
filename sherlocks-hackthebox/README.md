@@ -16,4 +16,6 @@ In order to follow the Sherlock rules, I'll post my solutions once the Sherlock 
 - ProcNet
 - Hyperfiletable
 - Brutus :white_check_mark:
+- Unit42 :white_check_mark:
+- BFT :white_check_mark:
 
